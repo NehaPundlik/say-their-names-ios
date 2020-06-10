@@ -130,22 +130,15 @@ final class PersonCell: UICollectionViewCell {
 
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
-        
+
         styleLabels()
     }
     
     private func styleLabels() {
-
         nameLabel.font = UIFont.STN.cardTitle
+        nameLabel.adjustsFontForContentSizeCategory = true
         dateOfIncidentLabel.font = UIFont.STN.cardSubitle
-    }
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        
-        if traitCollection.preferredContentSizeCategory != previousTraitCollection?.preferredContentSizeCategory {
-            styleLabels()
-        }
+        dateOfIncidentLabel.adjustsFontForContentSizeCategory = true
     }
 
     // MARK: - Handlers

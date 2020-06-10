@@ -105,18 +105,11 @@ final class PetitionDetailView: UIView {
     }
     
     private func styleLabels() {
-
         titleLabel.font = UIFont.STN.bannerTitle
+        titleLabel.adjustsFontForContentSizeCategory = true
         summaryLabel.font = UIFont.STN.bannerSubitle
+        summaryLabel.adjustsFontForContentSizeCategory = true
         verifiedLabel.font = UIFont.STN.verifiedTag
+        verifiedLabel.adjustsFontForContentSizeCategory = true
     }
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        
-        if traitCollection.preferredContentSizeCategory != previousTraitCollection?.preferredContentSizeCategory {
-            styleLabels()
-        }
-    }
-
 }

@@ -44,14 +44,6 @@ class ButtonContainerView: UIView {
         
         styleControls()
     }
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-
-        if traitCollection.preferredContentSizeCategory != previousTraitCollection?.preferredContentSizeCategory {
-            styleControls()
-        }
-    }
 
     // MARK: - Configure Subview
     private func configureView() {
@@ -96,8 +88,8 @@ class ButtonContainerView: UIView {
     }
 
     private func styleControls() {
-
         button.titleLabel?.font = UIFont.STN.fullBleedButton
+        button.titleLabel?.adjustsFontForContentSizeCategory = true
     }
 
 }
