@@ -39,96 +39,103 @@ extension UIFont {
         // 28
         static var title: UIFont { UIFont.dynamicCustomFont(
         fontName: FontName.karlaBold.rawValue,
-        textStyle: .title1) }
+        textStyle: .title1).scaledFont(forTextStyle: .title1) }
         
         // 18 on figma but this yields 17 on default
         static var body: UIFont { UIFont.dynamicCustomFont(
         fontName: FontName.karlaRegular.rawValue,
-        textStyle: .body) }
+        textStyle: .body).scaledFont(forTextStyle: .body) }
         
         // 17
-        static var sectionHeader: UIFont { UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .body) }
+        static var sectionHeader: UIFont { UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .body).scaledFont(forTextStyle: .body) }
         
         // 15
         static var locationText: UIFont { UIFont.dynamicCustomFont(
             fontName: FontName.karlaBold.rawValue,
-            textStyle: .subheadline) }
+            textStyle: .subheadline).scaledFont(forTextStyle: .subheadline) }
 
         // 17
         static var filledButtonTitle: UIFont { UIFont.dynamicCustomFont(
             fontName: FontName.karlaRegular.rawValue,
-            textStyle: .body) }
+            textStyle: .body).scaledFont(forTextStyle: .body) }
         
         // 21 on figma but this yields 20 on default
         static var plainButtonTitle: UIFont { UIFont.dynamicCustomFont(
             fontName: FontName.karlaRegular.rawValue,
-            textStyle: .title3) }
+            textStyle: .title3).scaledFont(forTextStyle: .title3) }
 
         // 15
         static var cardTitle: UIFont { UIFont.dynamicCustomFont(
             fontName: FontName.karlaBold.rawValue,
-            textStyle: .subheadline) }
+            textStyle: .subheadline).scaledFont(forTextStyle: .subheadline) }
         
         // 14 on figma but this yields 13 on default
         static var cardSubitle: UIFont { UIFont.dynamicCustomFont(
             fontName: FontName.karlaRegular.rawValue,
-            textStyle: .footnote) }
+            textStyle: .footnote).scaledFont(forTextStyle: .footnote) }
         
         // 19 on figma but this yields 20 on default
         static var bannerTitle: UIFont { UIFont.dynamicCustomFont(
             fontName: FontName.karlaBold.rawValue,
-            textStyle: .title3) }
+            textStyle: .title3).scaledFont(forTextStyle: .title3) }
         
         // 17
         static var bannerSubitle: UIFont { UIFont.dynamicCustomFont(
             fontName: FontName.karlaRegular.rawValue,
-            textStyle: .body) }
+            textStyle: .body).scaledFont(forTextStyle: .body).scaledFont(forTextStyle: .body) }
 
         // 21 on figma but this yields 22 on default
         static var navBarTitle: UIFont { UIFont.dynamicCustomFont(
             fontName: FontName.karlaRegular.rawValue,
-            textStyle: .title2) }
+            textStyle: .title2).scaledFont(forTextStyle: .title2) }
         
         // 13
         static var tabButtonTitle: UIFont { UIFont.dynamicCustomFont(
             fontName: FontName.karlaBold.rawValue,
-            textStyle: .footnote) }
+            textStyle: .footnote).scaledFont(forTextStyle: .footnote) }
         
-        static var verifiedTag: UIFont { UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .footnote) }
+        static var verifiedTag: UIFont { UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .footnote).scaledFont(forTextStyle: .footnote) }
 
-        static var summary: UIFont { UIFont.dynamicCustomFont(fontName: FontName.karlaRegular.rawValue, textStyle: .subheadline) }
+        static var summary: UIFont { UIFont.dynamicCustomFont(fontName: FontName.karlaRegular.rawValue, textStyle: .subheadline).scaledFont(forTextStyle: .subheadline) }
         
         // 20 on figma but this yields 20 on default
         static var detailViewTitle: UIFont { UIFont.dynamicCustomFont(
             fontName: FontName.karlaBold.rawValue,
-            textStyle: .title3) }
+            textStyle: .title3).scaledFont(forTextStyle: .title3) }
 
         // 12 on FIgma, this yields 13 on default
         static var detailViewFieldTitle: UIFont { UIFont.dynamicCustomFont(
             fontName: FontName.karlaBold.rawValue,
-            textStyle: .footnote) }
+            textStyle: .footnote).scaledFont(forTextStyle: .footnote) }
 
         // 16 on Figma, 15 on default
         static var detailViewField: UIFont { UIFont.dynamicCustomFont(
             fontName: FontName.karlaBold.rawValue,
-            textStyle: .subheadline) }
+            textStyle: .subheadline).scaledFont(forTextStyle: .subheadline) }
 
         // 17
-        static var hashtagButton: UIFont { UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .body) }
+        static var hashtagButton: UIFont { UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .body).scaledFont(forTextStyle: .body) }
 
         // 17
-        static var fullBleedButton: UIFont { UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .body) }
+        static var fullBleedButton: UIFont { UIFont.dynamicCustomFont(fontName: FontName.karlaBold.rawValue, textStyle: .body).scaledFont(forTextStyle: .body) }
         
         /// Karla Bold - .body (17)
         static let ctaTitle: UIFont = UIFont.dynamicCustomFont(
             fontName: FontName.karlaBold.rawValue,
             textStyle: .body
-        )
+        ).scaledFont(forTextStyle: .body)
         
         /// Karla Regular - .subheadline (15)
         static let ctaBody: UIFont = UIFont.dynamicCustomFont(
             fontName: FontName.karlaRegular.rawValue,
             textStyle: .subheadline
-        )
+        ).scaledFont(forTextStyle: .subheadline)
+    }
+}
+
+extension UIFont {
+    public func scaledFont(forTextStyle textStyle: UIFont.TextStyle) -> UIFont {
+      let fontMetrics = UIFontMetrics(forTextStyle: textStyle)
+      return fontMetrics.scaledFont(for: self)
     }
 }
